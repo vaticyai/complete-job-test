@@ -9,4 +9,6 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o syncpocalypse main.go
 FROM alpine:3.14 AS run
 WORKDIR /app
 COPY --from=build /app/syncpocalypse /app/syncpocalypse
+COPY _source /app/_source
+COPY _destination /app/_destination
 ENTRYPOINT [ "/app/syncpocalypse" ]
