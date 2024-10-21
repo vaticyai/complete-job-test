@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
         - name: syncpocalypse
-          image: "{{ .Values.image.repository }}@{{ .Values.image.digest }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: "LOG_LEVEL"
