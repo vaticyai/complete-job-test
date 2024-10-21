@@ -13,6 +13,7 @@ spec:
           env:
             - name: "LOG_LEVEL"
               value: {{ .Values.logLevel }}
-      restartPolicy: OnFailure
-  backoffLimit: 4
+      restartPolicy: {{ .Values.restartPolicy }}
+  # backoffLimit: {{ .Values.backoffLimit }} # Commenting this as it deletes the Pod after the backoffLimit is reached and no alert can be created
+  ttlSecondsAfterFinished: {{ .Values.ttlSecondsAfterFinished }} # Keep the job for after completion
 {{- end }}
