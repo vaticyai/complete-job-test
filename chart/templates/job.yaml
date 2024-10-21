@@ -5,11 +5,20 @@ metadata:
   name: syncpocalypse
 spec:
   template:
+    metadata:
+      annotations:
+        prometheus.io/port: "9090"
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
     spec:
       containers:
         - name: syncpocalypse
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: metrics
+              containerPort: 9090
+              protocol: TCP
           env:
             - name: "LOG_LEVEL"
               value: {{ .Values.logLevel }}
