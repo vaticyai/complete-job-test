@@ -5,5 +5,5 @@ image:
   pullPolicy: "Always"
 logLevel: "debug"
 restartPolicy: "OnFailure" # "OnFailure" "Never" "Always"
-backoffLimit: 4
+backoffLimit: 100
 ttlSecondsAfterFinished: 3600
