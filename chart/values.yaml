@@ -1,0 +1,6 @@
+enabled: true
+image:
+  repository: "zigelboimmisha/syncpocalypse"
+  tag: "latest"
+  pullPolicy: "Always"
+logLevel: "debug"

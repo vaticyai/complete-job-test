@@ -1,0 +1,18 @@
+{{- if .Values.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: syncpocalypse
+spec:
+  template:
+    spec:
+      containers:
+        - name: syncpocalypse
+          image: "{{ .Values.image.repository }}@{{ .Values.image.digest }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: "LOG_LEVEL"
+              value: {{ .Values.logLevel }}
+      restartPolicy: Always
+  backoffLimit: 4
+{{- end }}
