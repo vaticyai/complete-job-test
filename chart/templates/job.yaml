@@ -13,6 +13,6 @@ spec:
           env:
             - name: "LOG_LEVEL"
               value: {{ .Values.logLevel }}
-      restartPolicy: Always
+      restartPolicy: OnFailure
   backoffLimit: 4
 {{- end }}
