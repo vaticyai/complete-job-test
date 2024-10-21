@@ -4,3 +4,6 @@ image:
   tag: "latest"
   pullPolicy: "Always"
 logLevel: "debug"
+restartPolicy: "OnFailure" # "OnFailure" "Never" "Always"
+backoffLimit: 4
+ttlSecondsAfterFinished: 3600
